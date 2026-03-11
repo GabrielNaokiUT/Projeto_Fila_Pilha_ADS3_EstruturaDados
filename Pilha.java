@@ -1,7 +1,9 @@
 public class Pilha {
     No topo = null;
+    int cont = 0;
     
     public void empilhar(String valor) {
+        cont++;
         No p = new No();
         p.setDado(valor);
         
@@ -16,6 +18,7 @@ public class Pilha {
     }
 
     public No desempilhar() {
+        cont--;
         No aux = topo;
         topo = topo.getProximo();
         return aux;
@@ -51,3 +54,4 @@ public class Pilha {
         }
     }
 }
+
