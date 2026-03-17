@@ -1,14 +1,14 @@
 public class Pilha {
     No topo = null;
-    
+
     public void empilhar(String valor) {
         No p = new No();
         p.setDado(valor);
-        
-        if(topo == null){
+
+        if (topo == null) {
             topo = p;
             p.setProximo(null);
-            System.out.println("Não há livros na pilha de livros");
+            System.out.println("Primeiro livro adicionado à pilha!");
         } else {
             p.setProximo(topo);
             topo = p;
@@ -16,18 +16,25 @@ public class Pilha {
     }
 
     public No desempilhar() {
+        if (topo == null) {
+            System.out.println("Não há livros na pilha. Não é possível desempilhar.");
+            return null;
+        }
+
         No aux = topo;
         topo = topo.getProximo();
         return aux;
     }
 
-    public void consultar(){
+    public void consultar() {
         No aux = topo;
-        if(aux == null) {
+
+        if (aux == null) {
             System.out.println("A pilha está vazia");
+            return;
         }
-        
-        while(aux != null) {
+
+        while (aux != null) {
             System.out.println("Livro: " + aux.getDado());
             aux = aux.getProximo();
         }
@@ -35,19 +42,19 @@ public class Pilha {
 
     public void verVazio() {
         No aux = topo;
-        if(aux == null) {
+        if (aux == null) {
             System.out.println("A pilha de livros está vazia");
         } else {
-            System.out.println("Existem livros na pilha de livro");
+            System.out.println("Existem livros na pilha de livros");
         }
     }
 
-    public void verProximo(){
+    public void verProximo() {
         No aux = topo;
-        if(aux == null) {
+        if (aux == null) {
             System.out.println("Não há livros a serem lidos");
         } else {
-            System.out.println("O proximo livro é " + aux.getDado());
+            System.out.println("O próximo livro é: " + aux.getDado());
         }
     }
 }
